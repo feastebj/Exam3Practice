@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Benjamin Feaster.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -30,8 +30,27 @@ def run_test_zero_changer():
     print('  Expected:', expected1)
     print('  Actual:  ', test1)
 
+    # Test 2:
+    test1 = ([8, 4, 0, 9], [77, 0, 0, 1, 5, 0], [4, 4, 4], [4, 4, 4])
+    expected1 = ([8, 4, 1, 9], [77, 2, 3, 1, 5, 4], [4, 4, 4], [4, 4, 4])
+    zero_changer(test1)
+    print()
+    print('Test 1:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 3:
+    test1 = ([8, 0, 0, 9], [77, 0, 0, 1, 5, 0], [4, 4, 4], [4, 0, 4])
+    expected1 = ([8, 1, 2, 9], [77, 2, 3, 1, 5, 5], [4, 4, 4], [4, 6, 4])
+    zero_changer(test1)
+    print()
+    print('Test 1:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # DONE: 2. Write at least 2 additional tests for the  zero_changer
+    # function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
 
@@ -61,7 +80,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -69,6 +88,14 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(len(tuple_of_lists)):
+        for j in range(len(tuple_of_lists[k])):
+            if tuple_of_lists[k][j] == 0:
+                count = count + 1
+                tuple_of_lists[k][j] = count
+    return tuple_of_lists
 
 
 # ----------------------------------------------------------------------
